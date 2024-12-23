@@ -1,12 +1,18 @@
 # making a live converter for currency
-
-# from tutorial import config
+import requests
+import config
 import streamlit as st
 
+url = f'https://v6.exchangerate-api.com/v6/{config.api_key}/latest/USD'
 def convert(currency, currency_value):
 # currency_value: dollar amount
 # currency: eur,usd, etc
-    return 10
+
+    response = requests.get(url)
+    data = response.json()
+    conversion_rate = data['conversion_rates']['EUR']
+    result = currency_value * conversion_rate
+    return result
 
 st.title('Live Currency Converter')
 conversion = st.radio("Choose the conversion: ", ('USD to EUR', 'EUR to USD'))
@@ -24,9 +30,9 @@ if conversion == 'USD to EUR':
         # extracting the USD and that will be sent to the convery funct
         # the pass the value
         euros = convert(conversion[:3], user_input_value)
-        st.success(f"The Results is {euros}")
+        st.success(f"The Results is {euros:.2f}")
 else:
     # intending to get usd from euros
     if btn_value:
         dollars = convert(conversion[:3], user_input_value)
-        st.success(f'The Results is {dollars}')
+        st.success(f'The Results is {dollars:.2f}')
