@@ -13,8 +13,8 @@ if conversion == 'USD to EUR':
     # intending to get euros from usd
     # calculating the conversion
     # result of conversion
-    euros = usd_to_euros()
+    euros = convert()
 
 else:
     # intending to get usd from euros
-    dollars = eur_to_usd()
+    dollars = convert()
