@@ -20,11 +20,13 @@ if conversion == 'USD to EUR':
     # intending to get euros from usd
     # calculating the conversion
     # result of conversion
-    # extracting the USD and that will be sent to the convery funct
-    # the pass the value
-    euros = convert(conversion[:3], user_input_value)
-    if btn_value
-
+    if btn_value:
+        # extracting the USD and that will be sent to the convery funct
+        # the pass the value
+        euros = convert(conversion[:3], user_input_value)
+        st.success(f"The Results is {euros}")
 else:
     # intending to get usd from euros
-    dollars = convert(conversion[:3])
+    if btn_value:
+        dollars = convert(conversion[:3], user_input_value)
+        st.success(f'The Results is {dollars}')
