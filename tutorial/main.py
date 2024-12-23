@@ -17,4 +17,4 @@ if conversion == 'USD to EUR':
 else:
     # intending to get usd from euros
     user_input_eur = st.number_input("Enter the amount in EUR:")
-    dollars = usd_to_euros()
+    dollars = eur_to_usd()
